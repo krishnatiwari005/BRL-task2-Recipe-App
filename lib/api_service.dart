@@ -5,31 +5,24 @@ import 'meal.dart';
 class ApiService {
   static const baseUrl = "https://www.themealdb.com/api/json/v1/1";
 
-  // Search vegetarian meals by name
+  // Search meals by name (all categories)
   static Future<List<Meal>> searchMeals(String query) async {
     final response = await http.get(Uri.parse("$baseUrl/search.php?s=$query"));
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final List meals = data['meals'] ?? [];
-      // Filter only vegetarian meals
-      final vegMeals = meals.where((m) => m['strCategory'] == 'Vegetarian').toList();
-      return vegMeals.map((m) => Meal.fromJson(m)).toList();
+      return meals.map((m) => Meal.fromJson(m)).toList();
     } else {
-      throw Exception("Failed to load vegetarian meals");
+      throw Exception("Failed to load meals");
     }
   }
 
-  // Get vegetarian meal details by ID
+  // Get meal details by ID
   static Future<Map<String, dynamic>> getMealDetails(String id) async {
     final response = await http.get(Uri.parse("$baseUrl/lookup.php?i=$id"));
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      final meal = data['meals'][0];
-      if (meal['strCategory'] == 'Vegetarian') {
-        return meal;
-      } else {
-        throw Exception("Meal is not vegetarian");
-      }
+      return data['meals'][0];
     } else {
       throw Exception("Failed to load meal details");
     }
@@ -47,35 +40,61 @@ class ApiService {
     }
   }
 
-  // Get vegetarian meals by ingredient
-  static Future<List> getVegetarianMealsByIngredient(String ingredient) async {
+  // Get meals by ingredient
+  static Future<List<Meal>> getMealsByIngredient(String ingredient) async {
     final response = await http.get(Uri.parse("$baseUrl/filter.php?i=$ingredient"));
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      final List meals = data['meals'] ?? [];
-      // Filter only vegetarian meals
-      final vegMeals = [];
-      for (var m in meals) {
-        final details = await getMealDetails(m['idMeal']);
-        if (details['strCategory'] == 'Vegetarian') {
-          vegMeals.add(Meal.fromJson(details));
-        }
-      }
-      return vegMeals;
-    } else {
-      throw Exception("Failed to load meals by ingredient");
-    }
-  }
-
-  // Get all vegetarian meals
-  static Future<List<Meal>> getAllVegetarianMeals() async {
-    final response = await http.get(Uri.parse("$baseUrl/filter.php?c=Vegetarian"));
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       final List meals = data['meals'] ?? [];
       return meals.map((m) => Meal.fromJson(m)).toList();
     } else {
-      throw Exception("Failed to load vegetarian meals");
+      throw Exception("Failed to load meals by ingredient");
+    }
+  }
+
+  // Get all meals by category (Veg or Non-Veg)
+  static Future<List<Meal>> getMealsByCategory(String categoryName) async {
+    final response = await http.get(Uri.parse("$baseUrl/filter.php?c=$categoryName"));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final List meals = data['meals'] ?? [];
+      return meals.map((m) => Meal.fromJson(m)).toList();
+    } else {
+      throw Exception("Failed to load meals for $categoryName");
+    }
+  }
+
+  // Get all meal categories
+  static Future<List<dynamic>> getCategories() async {
+    final response = await http.get(Uri.parse("$baseUrl/categories.php"));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['categories'] ?? [];
+    } else {
+      throw Exception("Failed to load categories");
+    }
+  }
+
+  // Get latest meals
+  static Future<List<Meal>> getLatestMeals() async {
+    final response = await http.get(Uri.parse("$baseUrl/latest.php"));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final List meals = data['meals'] ?? [];
+      return meals.map((m) => Meal.fromJson(m)).toList();
+    } else {
+      throw Exception("Failed to load latest meals");
+    }
+  }
+
+  // Get random meal (for banner)
+  static Future<Map<String, dynamic>> getRandomMeal() async {
+    final response = await http.get(Uri.parse("$baseUrl/random.php"));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['meals'][0];
+    } else {
+      throw Exception("Failed to load random meal");
     }
   }
 }

@@ -26,7 +26,8 @@ class _MealDetailState extends State<MealDetail> {
         meal = data;
         isLoading = false;
       });
-    } catch (e) {
+    } 
+    catch (e) {
       setState(() {
         isLoading = false;
       });
@@ -50,14 +51,14 @@ class _MealDetailState extends State<MealDetail> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 🖼️ Image
+            //  Image
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.network(meal!['strMealThumb']),
             ),
             const SizedBox(height: 16),
 
-            // 🏷️ Info
+            //  Info
             Text(
               meal!['strMeal'],
               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -66,7 +67,7 @@ class _MealDetailState extends State<MealDetail> {
               "${meal!['strCategory']} • ${meal!['strArea']}",
               style: const TextStyle(fontSize: 16, color: Colors.black54),
             ),
-            const Divider(height: 24),
+            const Divider(height: 40),
 
             // 📋 Instructions
             const Text(
