@@ -70,7 +70,7 @@ class _MealsByCategoryState extends State<MealsByCategory> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        elevation: 3,
+                        elevation: 100  ,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
