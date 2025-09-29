@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 import 'package:recipe_app/homescreen.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -46,6 +47,7 @@ class _SplashscreenState extends State<Splashscreen>with SingleTickerProviderSta
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            
             ClipRRect(
               borderRadius: BorderRadius.circular(100),
                         child: Image.asset(
@@ -65,7 +67,12 @@ class _SplashscreenState extends State<Splashscreen>with SingleTickerProviderSta
               color: Colors.black,
               fontSize: 28,
 
-            ),)
+            ),),
+            SizedBox(
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                child: Lottie.network("https://d1jj76g3lut4fe.cloudfront.net/saved_colors/132480/Yck7VXiod8FMJTPD.json"),
+              ),
           ],
         ),
       )

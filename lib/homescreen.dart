@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:recipe_app/widget/support_widget.dart';
 import 'api_service.dart';
 import 'meal.dart';
@@ -99,13 +100,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 5),
 
 //.........................................................................................................................................................................................................................................
              //added gif
              Center(
                  child: ClipRRect(
-                 borderRadius: BorderRadius.circular(100),
+                 borderRadius: BorderRadius.circular(10),
                  child: Image.asset("assets/gif/plating.gif",
                  height: 150,
                  width: 150,
@@ -113,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                ),
              ),
             ),
-           const SizedBox(height: 20),
+           const SizedBox(height: 5),
 //..................................................................................................................................
               // Search Bar
               Container(
@@ -212,18 +213,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
               if (isLoading) const LinearProgressIndicator(),
               
-//....................................................................................................................................................................................................................................
-              // SizedBox(
-              //   height: 100,
-              //   width: MediaQuery.of(context).size.width,
-              //   child: Lottie.network("https://assets10.lottiefiles.com/packages/lf20_wqjdunpd.json"),
-              // 
 
 
 //........................................................................................................................................................................................
               // some example 
               SizedBox(
               height: 200,
+              
                width: MediaQuery.of(context).size.width,
                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -235,12 +231,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontWeight: FontWeight.bold,
                 ),
              ),
-      SizedBox(height: 10),
-      Expanded(
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Container(
+            SizedBox(height: 10),
+             Expanded(
+             child: ListView(
+             scrollDirection: Axis.horizontal,
+             children: [
+             Container(
+               decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 232, 205, 131),
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 3,
+                                  offset: Offset(5, 1)),
+                            ],
+                          ),
               margin: EdgeInsets.only(right: 20.0),
               child: Column(
                 children: [
@@ -258,7 +264,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Container(
+            Container( 
+                           decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 232, 205, 131),
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 3,
+                                  offset: Offset(5, 1)),
+                            ],
+                          ),
               margin: EdgeInsets.only(right: 20.0),
               child: Column(
                 children: [
@@ -277,6 +293,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 232, 205, 131),
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 3,
+                                  offset: Offset(5, 1)),
+                            ],
+                          ),
               margin: EdgeInsets.only(right: 20.0),
               child: Column(
                 children: [
@@ -295,6 +321,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
+                      decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 232, 205, 131),
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 3,
+                                  offset: Offset(5, 1)),
+                            ],
+                          ),
               margin: EdgeInsets.only(right: 20.0),
               child: Column(
                 children: [
@@ -318,8 +354,12 @@ class _HomeScreenState extends State<HomeScreen> {
     ],
   ),
 ),
-
-
+// ..................................................................................................................................................
+               SizedBox(
+                height: 300,
+                width: 1000,
+                child: Lottie.network("https://d1jj76g3lut4fe.cloudfront.net/saved_colors/132480/qWHQCh46JDsiyuRI.json"),
+              ),
 
 //..........................................................................................................................................................
 
