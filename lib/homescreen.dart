@@ -62,41 +62,59 @@ class _HomeScreenState extends State<HomeScreen> {
       SafeArea(
         
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+          margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 0.0),
          child:SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Heading
-              Row(
-                children: [
-                  const Expanded(
-                    child: Text(
-                      "Looking for your\nfavourite meal🍴",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        
+              ClipRRect(
+                borderRadius: BorderRadiusGeometry.circular(30),
+                child: Container(height: 150, 
+                  decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.orange,const Color.fromARGB(255, 205, 55, 55)])),
+                  child: Row(
+                    children: [
+                      const Expanded(
+                        child: Text(
+                          "Looking for your\nfavourite meal🍴",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            
+                          ),
+                        ),
                       ),
-                    ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Image.network(
+                          "https://img.freepik.com/premium-photo/cute-mustache-man-cooking-vector-cartoon-illustration-culinary-fun_1240525-31624.jpg",
+                          height: 90,
+                          width: 90,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ],
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(30),
-                    child: Image.network(
-                      "https://img.freepik.com/premium-photo/cute-mustache-man-cooking-vector-cartoon-illustration-culinary-fun_1240525-31624.jpg",
-                      height: 80,
-                      width: 80,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ],
+                ),
               ),
 
               const SizedBox(height: 20),
 
 //.........................................................................................................................................................................................................................................
-
+             //added gif
+             Center(
+                 child: ClipRRect(
+                 borderRadius: BorderRadius.circular(100),
+                 child: Image.asset("assets/gif/plating.gif",
+                 height: 150,
+                 width: 150,
+                 fit: BoxFit.cover,
+               ),
+             ),
+            ),
+           const SizedBox(height: 20),
+//..................................................................................................................................
               // Search Bar
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),

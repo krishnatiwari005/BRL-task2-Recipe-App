@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/homescreen.dart';
+// import 'package:recipe_app/homescreen.dart';
+import 'package:recipe_app/splashscreen.dart';
 void main() { 
   runApp(const MyApp()); 
   }
@@ -15,7 +16,8 @@ void main() {
            theme: ThemeData( primarySwatch: Colors.teal,
             scaffoldBackgroundColor: const Color.fromARGB(255, 227, 125, 47), ),
           
-             home: const HomeScreen(),
+             home: const Splashscreen(
+             ),
            ); 
       }
       
