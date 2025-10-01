@@ -16,7 +16,7 @@ class ApiService {
       throw Exception("Failed to load meals");
     }
   }
-
+ 
   // Get meal details by ID
   static Future<Map<String, dynamic>> getMealDetails(String id) async {
     final response = await http.get(Uri.parse("$baseUrl/lookup.php?i=$id"));

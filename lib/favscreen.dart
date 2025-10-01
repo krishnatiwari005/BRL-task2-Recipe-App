@@ -6,7 +6,25 @@ class Favscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Center(child: Text("Your Favourite recipe")),
+      body: Stack(
+        children: [
+       
+          Container(
+            color: const Color.fromARGB(255, 213, 219, 202),
+          ),
+        
+          Center(
+            child: Text(
+              "Your Favourite Recipe",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 0, 0, 0), 
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

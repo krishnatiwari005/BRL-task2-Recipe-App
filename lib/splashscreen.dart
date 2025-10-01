@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 import 'package:recipe_app/bottomnav.dart';
 //  import 'package:recipe_app/homescreen.dart';
@@ -13,20 +14,22 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen>with SingleTickerProviderStateMixin{
   @override
-  void initState() {
+   void initState() {
      super.initState();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);                    //unable full screen mode
    
 
-   Future.delayed(Duration(seconds: 5),(){
-   // ignore: use_build_context_synchronously
-   Navigator.of(context).pushReplacement(MaterialPageRoute(
-  builder: (_)=> BottomNav(),
-  ),);
-   });
-  }
+     Future.delayed(Duration(seconds: 5),(){
+     // ignore: use_build_context_synchronously
+       Navigator.of(context).pushReplacement(MaterialPageRoute(
+         builder: (_)=> BottomNav(),
+         ),
+         );
+      }
+      );
+    }
   @override
-  void dispose() {
+   void dispose() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,overlays: SystemUiOverlay.values);
      super.dispose();
 
@@ -34,7 +37,8 @@ class _SplashscreenState extends State<Splashscreen>with SingleTickerProviderSta
   
   
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
     return Scaffold(
       body:Container(
         width: double.infinity,
@@ -48,6 +52,11 @@ class _SplashscreenState extends State<Splashscreen>with SingleTickerProviderSta
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Positioned(
+            bottom: 50,
+            child: SpinKitPouringHourGlass(size: 130,color: Color.fromARGB(255, 241, 204, 179))
+            ),
+            
             
             ClipRRect(
               borderRadius: BorderRadius.circular(100),

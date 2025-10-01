@@ -31,7 +31,7 @@ class _BottomNavState extends State<BottomNav> {
         backgroundColor: const Color.fromARGB(255, 237, 194, 169),
         items: 
       [
-        BottomNavigationBarItem(icon:Image.asset("assets/home.png",height: 24,width: 24,),label:"Home" ),
+        BottomNavigationBarItem(icon:Image.asset("assets/home.png",height: 30,width: 30,),label:"Home" ),
         BottomNavigationBarItem(icon: Image.asset("assets/star.png",height: 24,width: 24,),label:"Favourite" ),
         BottomNavigationBarItem(icon :Image.asset("assets/user.png",height: 24,width: 24,),label: "profile")
       ],type: BottomNavigationBarType.fixed,

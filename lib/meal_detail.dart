@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'api_service.dart';
 
 class MealDetail extends StatefulWidget {
@@ -37,7 +38,7 @@ class _MealDetailState extends State<MealDetail> {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return const Scaffold(body: Center(child: SpinKitCircle(size: 200,color: Color.fromARGB(255, 241, 204, 179))));
     }
 
     if (meal == null) {
@@ -51,14 +52,14 @@ class _MealDetailState extends State<MealDetail> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //  Image
+    
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.network(meal!['strMealThumb']),
             ),
             const SizedBox(height: 16),
 
-            //  Info
+      
             Text(
               meal!['strMeal'],
               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -69,7 +70,7 @@ class _MealDetailState extends State<MealDetail> {
             ),
             const Divider(height: 40),
 
-            // 📋 Instructions
+
             const Text(
               "Instructions:",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
