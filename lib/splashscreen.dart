@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
-import 'package:recipe_app/homescreen.dart';
+import 'package:recipe_app/bottomnav.dart';
+//  import 'package:recipe_app/homescreen.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -20,7 +21,7 @@ class _SplashscreenState extends State<Splashscreen>with SingleTickerProviderSta
    Future.delayed(Duration(seconds: 5),(){
    // ignore: use_build_context_synchronously
    Navigator.of(context).pushReplacement(MaterialPageRoute(
-  builder: (_)=> const HomeScreen(),
+  builder: (_)=> BottomNav(),
   ),);
    });
   }
