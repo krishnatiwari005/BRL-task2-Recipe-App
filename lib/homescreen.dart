@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ClipRRect(
                 borderRadius: BorderRadiusGeometry.circular(30),
                 child: Container(height: 150, 
-                  decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.orange,const Color.fromARGB(255, 205, 55, 55)])),
+                  decoration: BoxDecoration(gradient: LinearGradient(colors: [const Color.fromARGB(255, 237, 225, 121),const Color.fromARGB(255, 253, 89, 89)])),
                   child: Row(
                     children: [
                       const Expanded(

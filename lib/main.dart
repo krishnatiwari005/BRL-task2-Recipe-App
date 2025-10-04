@@ -10,11 +10,11 @@ void main() {
 
       @override Widget build(BuildContext context) 
       { 
-        return MaterialApp( 
+        return MaterialApp(   
            debugShowCheckedModeBanner: false,
            title: 'MealDB App', 
            theme: ThemeData( primarySwatch: Colors.teal,
-            scaffoldBackgroundColor: const Color.fromARGB(255, 227, 125, 47), ),
+            scaffoldBackgroundColor: const Color.fromARGB(255, 229, 162, 111), ),
           
              home: const Splashscreen(
              ),
